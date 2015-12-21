@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source ../gitscripts/log.sh
+
+checkvars TAG TAG_MESSAGE
+
+log "tagging $name with tag=${TAG}, message=${TAG_MESSAGE}"
+git tag -a "${TAG}" -m "${TAG_MESSAGE}"

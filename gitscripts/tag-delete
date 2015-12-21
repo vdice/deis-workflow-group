@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source ../gitscripts/log.sh
+
+checkvars TAG
+
+log "deleting tag ${TAG}"
+git tag -d "${TAG}"
