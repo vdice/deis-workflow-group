@@ -1,0 +1,28 @@
+[submodule "builder"]
+	path = builder
+	url = git@github.com:deis/builder.git
+	branch = master
+[submodule "database"]
+	path = database
+	url = git@github.com:deis/postgres.git
+	branch = master
+[submodule "etcd"]
+	path = etcd
+	url = git@github.com:deis/etcd.git
+	branch = master
+[submodule "minio"]
+	path = minio
+	url = git@github.com:deis/minio.git
+	branch = master
+[submodule "registry"]
+	path = registry
+	url = git@github.com:deis/registry.git
+	branch = master
+[submodule "router"]
+	path = router
+	url = git@github.com:deis/router.git
+	branch = master
+[submodule "workflow"]
+	path = workflow
+	url = git@github.com:deis/workflow.git
+	branch = master
