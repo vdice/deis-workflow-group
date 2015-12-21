@@ -48,3 +48,15 @@ Be a dear and commit the updated submodule references via:
 #### Bumping Versions
 
     VERSION=<next version> IMAGE_PREFIX=<deisci|deis> make next-version
+
+Easy Mode
+=========
+
+Releases (for now):
+
+```
+make update
+TAG=<tag number> TAG_MESSAGE=<message> make tag
+make tag-push
+VERSION=<next version> IMAGE_PREFIX=<deisci|deis> make next-version
+```
