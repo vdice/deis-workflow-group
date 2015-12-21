@@ -20,6 +20,11 @@ this repository
 
     make update
 
+Be a dear and commit the updated submodule references via:
+
+    git commit
+    git push
+
 #### Committing All Changes in Repos
 
     make commit
