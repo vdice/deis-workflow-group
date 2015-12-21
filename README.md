@@ -39,3 +39,7 @@ this repository
 #### Pushing All Tags
 
     make tag-push
+
+#### Bumping Versions
+
+    VERSION=<next version> IMAGE_PREFIX=<deisci|deis> make next-version
