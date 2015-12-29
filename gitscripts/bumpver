@@ -14,12 +14,20 @@ if [ ! -f _scripts/deploy.sh ]; then
   return 0
 fi
 
+ack -l --ignore-file='is:deploy.sh' \
+  --ignore-file='is:README.md' \
+  --ignore-file='is:bintray-template.json' \
+  --ignore-file='is:Makefile' \
+  deisci | xargs atom
+
 sed -i .bak \
     s/^export\ IMAGE_PREFIX=.*$/export\ IMAGE_PREFIX="${IMAGE_PREFIX}"\ "VERSION=${VERSION}"/ \
     _scripts/deploy.sh
 
 git add _scripts/deploy.sh
 
-git commit -m "chore(release): next development version: ${VERSION}"
+rm _scripts/deploy.sh.bak
 
-git clean -fdx
+#git commit -m "chore(release): next development version: ${VERSION}"
+
+#git clean -fdx

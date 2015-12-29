@@ -28,6 +28,14 @@ tag-push:
 next-version:
 	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/bumpver)"
 
+.PHONY: commit
+commit:
+	$(GIT_SUBMODULE_EACH) "git commit -a"
+
+.PHONY: diff
+diff:
+	$(GIT_SUBMODULE_EACH) "git diff HEAD"
+
 .PHONY: push
 push:
 	$(GIT_SUBMODULE_EACH) "git push"
