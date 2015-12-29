@@ -26,3 +26,11 @@
 	path = workflow
 	url = git@github.com:deis/workflow.git
 	branch = master
+[submodule "slugbuilder"]
+	path = slugbuilder
+	url = git@github.com:deis/slugbuilder.git
+	branch = master
+[submodule "slugrunner"]
+	path = slugrunner
+	url = git@github.com:deis/slugrunner.git
+	branch = master
