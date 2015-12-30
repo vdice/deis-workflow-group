@@ -18,7 +18,7 @@ ack -l --ignore-file='is:deploy.sh' \
   --ignore-file='is:README.md' \
   --ignore-file='is:bintray-template.json' \
   --ignore-file='is:Makefile' \
-  deisci | xargs atom
+  deis | xargs atom
 
 sed -i .bak \
     s/^export\ IMAGE_PREFIX=.*$/export\ IMAGE_PREFIX="${IMAGE_PREFIX}"\ "VERSION=${VERSION}"/ \
@@ -31,3 +31,11 @@ rm _scripts/deploy.sh.bak
 #git commit -m "chore(release): next development version: ${VERSION}"
 
 #git clean -fdx
+
+if [ -z ${IMAGE_PREFIX+x} ]; then
+  IMAGE_PREFIX=\\2
+fi
+
+find * -iname '*.yaml' | xargs sed -i .bak -E "s|^(.*)image: (quay\.io/)?(.*)/(.*):(.*)$|\1image: ${IMAGE_PREFIX}${ORGANIZATION:-\\3}/\4:${VERSION:-\\5}|g"
+
+find * -name '*.bak' | xargs rm -f
