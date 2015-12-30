@@ -26,7 +26,7 @@ tag-push:
 
 .PHONY: next-version
 next-version:
-	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/bumpver)"
+	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/set-versions)"
 
 .PHONY: commit
 commit:

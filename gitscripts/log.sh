@@ -1,5 +1,5 @@
 function log {
-  echo "[tag-all] " $@
+  echo "[info] " $@
 }
 
 function checkvar {

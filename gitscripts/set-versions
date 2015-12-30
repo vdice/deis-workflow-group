@@ -1,0 +1,33 @@
+
+#!/usr/bin/env bash
+
+source ../gitscripts/log.sh
+
+echo "---------"
+
+checkvars IMAGE_PREFIX VERSION
+
+log "advancing travis build to push with IMAGE_PREFIX=$IMAGE_PREFIX, VERSION=$VERSION"
+
+if [ ! -f _scripts/deploy.sh ]; then
+  log "_scripts/deploy.sh doesn't exist in repo: ${name}"
+  return 0
+fi
+
+sed -i .bak -E \
+  "s|^export IMAGE_PREFIX=.*$|export IMAGE_PREFIX="${IMAGE_PREFIX}" VERSION="${VERSION}"|" \
+  _scripts/deploy.sh
+
+#git add _scripts/deploy.sh
+
+#git commit -m "chore(release): next development version: ${VERSION}"
+
+#git clean -fdx
+
+if [ -z ${REGISTRY+x} ]; then
+  IMAGE_PREFIX=\\2
+fi
+
+find * -iname '*.yaml' | xargs sed -i .bak -E "s|^(.*)image: (quay\.io/)?(.*)/(.*):(.*)$|\1image: ${REGISTRY}${IMAGE_PREFIX:-\\3}/\4:${VERSION:-\\5}|g"
+
+find * -name '*.bak' | xargs rm -f
