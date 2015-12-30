@@ -27,6 +27,13 @@ tag-push:
 .PHONY: next-version
 next-version:
 	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/set-versions)"
+	atom workflow/rootfs/scheduler/k8s.py \
+		builder/rootfs/etc/deis-dockerbuilder.yaml \
+		builder/rootfs/etc/deis-slugbuilder.yaml \
+		minio/manifests/deis-mc-integration-pod.yaml \
+		minio/manifests/deis-mc-pod.yaml \
+		minio/manifests/deis-minio-rc.yaml \
+		workflow/manifests/deis-workflow-rc.yml \
 
 .PHONY: commit
 commit:

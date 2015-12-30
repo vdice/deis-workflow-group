@@ -25,7 +25,7 @@ sed -i .bak -E \
 #git clean -fdx
 
 if [ -z ${REGISTRY+x} ]; then
-  IMAGE_PREFIX=\\2
+  REGISTRY=\\2
 fi
 
 find * -iname '*.yaml' | xargs sed -i .bak -E "s|^(.*)image: (quay\.io/)?(.*)/(.*):(.*)$|\1image: ${REGISTRY}${IMAGE_PREFIX:-\\3}/\4:${VERSION:-\\5}|g"
