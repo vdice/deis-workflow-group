@@ -33,7 +33,8 @@ next-version:
 		minio/manifests/deis-mc-integration-pod.yaml \
 		minio/manifests/deis-mc-pod.yaml \
 		minio/manifests/deis-minio-rc.yaml \
-		workflow/manifests/deis-workflow-rc.yml \
+		workflow/manifests/deis-workflow-rc.yml
+	@echo "Run 'ack' to verify that no previous versions exist"
 
 .PHONY: commit
 commit:
