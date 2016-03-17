@@ -2,8 +2,8 @@
 	path = builder
 	url = git@github.com:deis/builder.git
 	branch = master
-[submodule "database"]
-	path = database
+[submodule "postgres"]
+	path = postgres
 	url = git@github.com:deis/postgres.git
 	branch = master
 [submodule "minio"]
@@ -36,3 +36,6 @@
 [submodule "workflow-manager"]
 	path = workflow-manager
 	url = git@github.com:deis/workflow-manager.git
+[submodule "charts"]
+	path = charts
+	url = git@github.com:deis/charts.git

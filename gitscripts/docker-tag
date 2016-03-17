@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+source ../gitscripts/log.sh
+
+checkvars TAG
+
+version="git-$(git rev-parse --short HEAD)"
+
+repo_name="$(basename $(git rev-parse --show-toplevel))"
+
+if [ ${repo_name} != "charts" ]; then
+  docker pull "quay.io/deisci/${repo_name}:${version}"
+
+  log "tagging quay.io/deisci/${repo_name}:${version} as quay.io/deis/${repo_name}:${TAG}"
+  docker tag -f "quay.io/deisci/${repo_name}:${version}" "quay.io/deis/${repo_name}:${TAG}"
+fi
