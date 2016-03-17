@@ -6,10 +6,6 @@
 	path = database
 	url = git@github.com:deis/postgres.git
 	branch = master
-[submodule "etcd"]
-	path = etcd
-	url = git@github.com:deis/etcd.git
-	branch = master
 [submodule "minio"]
 	path = minio
 	url = git@github.com:deis/minio.git
@@ -23,7 +19,7 @@
 	url = git@github.com:deis/router.git
 	branch = master
 [submodule "workflow"]
-	path = workflow
+	path = controller
 	url = git@github.com:deis/workflow.git
 	branch = master
 [submodule "slugbuilder"]
@@ -34,3 +30,9 @@
 	path = slugrunner
 	url = git@github.com:deis/slugrunner.git
 	branch = master
+[submodule "dockerbuilder"]
+	path = dockerbuilder
+	url = git@github.com:deis/dockerbuilder.git
+[submodule "workflow-manager"]
+	path = workflow-manager
+	url = git@github.com:deis/workflow-manager.git
