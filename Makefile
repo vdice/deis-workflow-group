@@ -5,6 +5,10 @@ GIT_SUBMODULE_EACH = git submodule foreach
 docker-tag:
 	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/docker-tag)"
 
+.PHONY: docker-push
+docker-push:
+	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/docker-push)"
+
 # Git command wrappers
 .PHONY: git-update
 git-update: git-clean
@@ -12,7 +16,7 @@ git-update: git-clean
 
 .PHONY: git-tag
 git-tag:
-	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/tag)"
+	$(GIT_SUBMODULE_EACH) "$$(cat gitscripts/tag-git)"
 
 .PHONY: git-tag-delete
 git-tag-delete:

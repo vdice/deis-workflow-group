@@ -18,9 +18,9 @@
 	path = router
 	url = git@github.com:deis/router.git
 	branch = master
-[submodule "workflow"]
+[submodule "controller"]
 	path = controller
-	url = git@github.com:deis/workflow.git
+	url = git@github.com:deis/controller.git
 	branch = master
 [submodule "slugbuilder"]
 	path = slugbuilder
@@ -39,3 +39,15 @@
 [submodule "charts"]
 	path = charts
 	url = git@github.com:deis/charts.git
+[submodule "workflow-e2e"]
+	path = workflow-e2e
+	url = https://github.com/deis/workflow-e2e.git
+[submodule "logger"]
+	path = logger
+	url = https://github.com/deis/logger.git
+[submodule "fluentd"]
+	path = fluentd
+	url = https://github.com/deis/fluentd.git
+[submodule "workflow"]
+	path = workflow
+	url = https://github.com/deis/workflow.git

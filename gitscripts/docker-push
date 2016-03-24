@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+source ../gitscripts/log.sh
+
+checkvars TAG
+
+repo_name="$(basename $(git rev-parse --show-toplevel))"
+
+if [ ${repo_name} != "charts" ]; then
+  log "pushing quay.io/deis/${repo_name}:${TAG}"
+  docker push "quay.io/deis/${repo_name}:${TAG}"
+fi
