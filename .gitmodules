@@ -50,4 +50,4 @@
 	url = https://github.com/deis/fluentd.git
 [submodule "workflow"]
 	path = workflow
-	url = https://github.com/deis/workflow.git
+	url = git@github.com:deis/workflow.git
