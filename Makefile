@@ -29,6 +29,7 @@ git-tag-push:
 .PHONY: git-commit
 git-commit:
 	$(GIT_SUBMODULE_EACH) "git commit -a || true"
+	git commit -a || true
 
 .PHONY: git-diff
 git-diff:
