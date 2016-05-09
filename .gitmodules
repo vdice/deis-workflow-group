@@ -51,3 +51,9 @@
 [submodule "workflow"]
 	path = workflow
 	url = git@github.com:deis/workflow.git
+[submodule "monitor"]
+	path = monitor
+	url = git@github.com:deis/monitor.git
+[submodule "stdout-metrics"]
+	path = stdout-metrics
+	url = git@github.com:deis/stdout-metrics.git
