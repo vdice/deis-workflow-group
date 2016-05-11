@@ -7,6 +7,20 @@ checkvars TAG
 repo_name="$(basename $(git rev-parse --show-toplevel))"
 
 if [ ${repo_name} != "charts" ]; then
-  log "pushing quay.io/deis/${repo_name}:${TAG}"
-  docker push "quay.io/deis/${repo_name}:${TAG}"
+  if [ ${repo_name} == "monitor" ]; then
+    cd grafana
+    log "pushing quay.io/deis/grafana:${TAG}"
+    docker push "quay.io/deis/grafana:${TAG}"
+
+    cd ../telegraf
+    log "pushing quay.io/deis/telegraf:${TAG}"
+    docker push "quay.io/deis/telegraf:${TAG}"
+
+    cd ../influxdb
+    log "pushing quay.io/deis/influxdb:${TAG}"
+    docker push "quay.io/deis/influxdb:${TAG}"
+  else
+    log "pushing quay.io/deis/${repo_name}:${TAG}"
+    docker push "quay.io/deis/${repo_name}:${TAG}"
+  fi
 fi

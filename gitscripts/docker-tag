@@ -9,8 +9,25 @@ version="git-$(git rev-parse --short HEAD)"
 repo_name="$(basename $(git rev-parse --show-toplevel))"
 
 if [ ${repo_name} != "charts" ]; then
-  docker pull "quay.io/deisci/${repo_name}:${version}"
+  if [ ${repo_name} == "monitor" ]; then
+    cd grafana
+    docker pull "quay.io/deisci/grafana:${version}"
+    log "tagging quay.io/deisci/grafana:${version} as quay.io/deis/grafana:${TAG}"
+    docker tag -f "quay.io/deisci/grafana:${version}" "quay.io/deis/grafana:${TAG}"
 
-  log "tagging quay.io/deisci/${repo_name}:${version} as quay.io/deis/${repo_name}:${TAG}"
-  docker tag -f "quay.io/deisci/${repo_name}:${version}" "quay.io/deis/${repo_name}:${TAG}"
+    cd ../telegraf
+    docker pull "quay.io/deisci/telegraf:${version}"
+    log "tagging quay.io/deisci/telegraf:${version} as quay.io/deis/telegraf:${TAG}"
+    docker tag -f "quay.io/deisci/telegraf:${version}" "quay.io/deis/telegraf:${TAG}"
+
+    cd ../influxdb
+    docker pull "quay.io/deisci/influxdb:${version}"
+    log "tagging quay.io/deisci/influxdb:${version} as quay.io/deis/influxdb:${TAG}"
+    docker tag -f "quay.io/deisci/influxdb:${version}" "quay.io/deis/influxdb:${TAG}"
+  else
+    docker pull "quay.io/deisci/${repo_name}:${version}"
+
+    log "tagging quay.io/deisci/${repo_name}:${version} as quay.io/deis/${repo_name}:${TAG}"
+    docker tag -f "quay.io/deisci/${repo_name}:${version}" "quay.io/deis/${repo_name}:${TAG}"
+  fi
 fi
